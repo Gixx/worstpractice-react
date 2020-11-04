@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './style.scss'
-import Submit from './Submit.jsx'
+import Select from './Select.jsx'
+import Input from './Input.jsx'
 import Check from './Check.jsx'
+import Submit from './Submit.jsx'
 
 class Form extends Component
 {
@@ -13,11 +15,16 @@ class Form extends Component
             locked: true
         }
 
-        this.handleChange = this.handleChange.bind(this)
+        this.onInputChange = this.onInputChange.bind(this)
         this.onLockChange = this.onLockChange.bind(this)
+        this.whenSelectChanged = this.whenSelectChanged.bind(this)
     }
 
-    handleChange(event) {
+    whenSelectChanged(isSafe) {
+        this.setState({value: isSafe ? 'Yes' : 'No'})
+    }
+
+    onInputChange(event) {
         const { value } = event.target
         this.setState(() => {
             return {
@@ -38,13 +45,12 @@ class Form extends Component
     render() {
         return (
             <form id='MyForm'>
-                <label>Is it safe? Yes or no? <input
-                    type='text'
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                /></label><br />
+                <Select whenSelectChanged={this.whenSelectChanged} /><br />
 
-                <Check locked={this.state.locked} onLockChange={this.onLockChange} />
+                <Input value={this.state.value} onChange={this.onInputChange} /><br />
+
+                <Check locked={this.state.locked} onLockChange={this.onLockChange} /><br />
+
                 <Submit data={this.state} />
             </form>
         )

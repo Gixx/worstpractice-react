@@ -22,6 +22,10 @@ module.exports = {
             ignore: ['*.DS_Store'],
           },
         },
+        {
+          from: paths.assets + '/data',
+          to: paths.build + '/assets/data',
+        },
       ],
     }),
     new HtmlWebpackPlugin({

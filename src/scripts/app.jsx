@@ -1,5 +1,5 @@
-import React from "react"
-import ReactDOM from "react-dom"
+import React from 'react'
+import ReactDOM from 'react-dom'
 import '../styles/app.scss'
 import Form from './components/Form/Form.jsx'
 

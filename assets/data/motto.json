@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "text": "Good day to learn React!",
+    "safe": true
+  },
+  {
+    "id": 2,
+    "text": "Spiderman 4 life!",
+    "safe": true
+  },
+  {
+    "id": 3,
+    "text": "What you can do today, you can do it tomorrow either.",
+    "safe": false
+  }
+]

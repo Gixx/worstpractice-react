@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 class Submit extends Component
 {
@@ -8,8 +8,11 @@ class Submit extends Component
 
     render() {
         let enabled = this.props.data.value.toLowerCase() === 'yes';
-        return <button type="submit" style={{ backgroundColor: enabled ? 'green' : 'red'}}>
-            { enabled ? 'OK' : 'Cancel' }
+        const style = { backgroundColor: enabled ? 'green' : 'red'}
+        const text  = enabled ? 'OK' : 'Cancel'
+
+        return <button type="submit" style={style}>
+            {text}
         </button>
     }
 }

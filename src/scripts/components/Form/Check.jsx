@@ -13,7 +13,6 @@ class Check extends Component
                     onChange={this.props.onLockChange}
                 />
             </label>
-            <br />
         </div>
     }
 }
