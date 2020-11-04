@@ -28,7 +28,6 @@ class Form extends Component
 
     onLockChange() {
         this.setState(prevState => {
-            console.log(prevState)
             return {
                 value: prevState.value,
                 locked: !prevState.locked
