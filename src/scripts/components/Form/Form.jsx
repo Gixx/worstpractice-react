@@ -7,13 +7,9 @@ import Submit from './Submit.jsx'
 
 class Form extends Component
 {
-    constructor() {
-        super()
-
-        this.state = {
-            value: '',
-            locked: true
-        }
+    state = {
+        value: '',
+        locked: true
     }
 
     whenSelectChanged = (isSafe) => {
@@ -38,9 +34,13 @@ class Form extends Component
         })
     }
 
+    onFormSubmit = (event) => {
+        event.preventDefault()
+    }
+
     render() {
         return (
-            <form id='MyForm'>
+            <form id='MyForm' onSubmit={this.onFormSubmit}>
                 <Select whenSelectChanged={this.whenSelectChanged} /><br />
 
                 <Input value={this.state.value} onChange={this.onInputChange} /><br />

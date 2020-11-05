@@ -3,13 +3,9 @@ import Option from './Select/Option.jsx'
 
 class Select extends Component
 {
-    constructor() {
-        super();
-
-        this.state = {
-            mottos: [],
-            data: []
-        }
+    state = {
+        mottos: [],
+        data: []
     }
 
     onSelectChange = (event) => {
