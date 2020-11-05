@@ -10,11 +10,9 @@ class Select extends Component
             mottos: [],
             data: []
         }
-
-        this.onSelectChange = this.onSelectChange.bind(this)
     }
 
-    onSelectChange(event) {
+    onSelectChange = (event) => {
         const newValue = parseInt(event.target.value);
         const selectedMotto = this.state.data.find(item => item.id === newValue)
 
@@ -26,7 +24,7 @@ class Select extends Component
             .then(response => response.json())
             .then(data => {
                 const mottos = data.map(item => {
-                    return <Option value={item.id} label={item.text} />
+                    return <Option key={item.id} value={item.id} label={item.text} />
                 })
 
                 this.setState({mottos: mottos, data: data})

@@ -14,17 +14,13 @@ class Form extends Component
             value: '',
             locked: true
         }
-
-        this.onInputChange = this.onInputChange.bind(this)
-        this.onLockChange = this.onLockChange.bind(this)
-        this.whenSelectChanged = this.whenSelectChanged.bind(this)
     }
 
-    whenSelectChanged(isSafe) {
+    whenSelectChanged = (isSafe) => {
         this.setState({value: isSafe ? 'Yes' : 'No'})
     }
 
-    onInputChange(event) {
+    onInputChange = (event) => {
         const { value } = event.target
         this.setState(() => {
             return {
@@ -33,7 +29,7 @@ class Form extends Component
         })
     }
 
-    onLockChange() {
+    onLockChange = () => {
         this.setState(prevState => {
             return {
                 value: prevState.value,
