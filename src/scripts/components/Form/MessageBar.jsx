@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import '../../../styles/definitions/_messagebar.scss'
 
+/**
+ * Renders a <div> element with some calculated data
+ *
+ * @return {JSX.Element}
+ * @constructor
+ */
 export default function MessageBar()
 {
     const [[x, y], setWindowsize] = useState([window.innerWidth, window.innerHeight])
