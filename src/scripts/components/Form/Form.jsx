@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './style.scss'
+import MessageBar from './MessageBar.jsx'
 import Select from './Select.jsx'
 import Input from './Input.jsx'
 import Check from './Check.jsx'
@@ -16,11 +17,17 @@ export default function Form()
     const [value, setValue] = useState('')
     const [locked, setLocked] = useState(true)
 
+    const onInputChange = (event) => {
+        setValue(event.target.value)
+    }
+
     return (
         <form id='MyForm' onSubmit={event => event.preventDefault()}>
+            <MessageBar />
+
             <Select whenSelectChanged={isSafe => setValue(isSafe ? 'Yes' : 'No')} /><br />
 
-            <Input value={value} onInputChange={event => setValue(event.target.value)} /><br />
+            <Input value={value} onInputChange={onInputChange} /><br />
 
             <Check locked={locked} onLockChange={() => setLocked(!locked)} /><br />
 
