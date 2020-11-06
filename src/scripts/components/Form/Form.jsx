@@ -16,31 +16,13 @@ export default function Form()
     const [value, setValue] = useState('')
     const [locked, setLocked] = useState(true)
 
-    const whenSelectChanged = (isSafe) => {
-        const value = isSafe ? 'Yes' : 'No'
-        setValue(value)
-    }
-
-    const onInputChange = (event) => {
-        const { value } = event.target
-        setValue(value)
-    }
-
-    const onLockChange = () => {
-        setLocked(!locked)
-    }
-
-    const onFormSubmit = (event) => {
-        event.preventDefault()
-    }
-
     return (
-        <form id='MyForm' onSubmit={onFormSubmit}>
-            <Select whenSelectChanged={whenSelectChanged} /><br />
+        <form id='MyForm' onSubmit={event => event.preventDefault()}>
+            <Select whenSelectChanged={isSafe => setValue(isSafe ? 'Yes' : 'No')} /><br />
 
-            <Input value={value} onInputChange={onInputChange} /><br />
+            <Input value={value} onInputChange={event => setValue(event.target.value)} /><br />
 
-            <Check locked={locked} onLockChange={onLockChange} /><br />
+            <Check locked={locked} onLockChange={() => setLocked(!locked)} /><br />
 
             <Submit value={value} locked={locked} />
         </form>
