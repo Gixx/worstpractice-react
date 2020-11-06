@@ -1,56 +1,50 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './style.scss'
 import Select from './Select.jsx'
 import Input from './Input.jsx'
 import Check from './Check.jsx'
 import Submit from './Submit.jsx'
 
-class Form extends Component
+/**
+ * Renders a form with a couple of sub-components within
+ *
+ * @return {JSX.Element}
+ * @constructor
+ */
+function Form()
 {
-    state = {
-        value: '',
-        locked: true
+    const [value, setValue] = useState('')
+    const [locked, setLocked] = useState(true)
+
+    const whenSelectChanged = (isSafe) => {
+        const value = isSafe ? 'Yes' : 'No'
+        setValue(value)
     }
 
-    whenSelectChanged = (isSafe) => {
-        this.setState({value: isSafe ? 'Yes' : 'No'})
-    }
-
-    onInputChange = (event) => {
+    const onInputChange = (event) => {
         const { value } = event.target
-        this.setState(() => {
-            return {
-                value
-            }
-        })
+        setValue(value)
     }
 
-    onLockChange = () => {
-        this.setState(prevState => {
-            return {
-                value: prevState.value,
-                locked: !prevState.locked
-            }
-        })
+    const onLockChange = () => {
+        setLocked(!locked)
     }
 
-    onFormSubmit = (event) => {
+    const onFormSubmit = (event) => {
         event.preventDefault()
     }
 
-    render() {
-        return (
-            <form id='MyForm' onSubmit={this.onFormSubmit}>
-                <Select whenSelectChanged={this.whenSelectChanged} /><br />
+    return (
+        <form id='MyForm' onSubmit={onFormSubmit}>
+            <Select whenSelectChanged={whenSelectChanged} /><br />
 
-                <Input value={this.state.value} onChange={this.onInputChange} /><br />
+            <Input value={value} onInputChange={onInputChange} /><br />
 
-                <Check locked={this.state.locked} onLockChange={this.onLockChange} /><br />
+            <Check locked={locked} onLockChange={onLockChange} /><br />
 
-                <Submit data={this.state} />
-            </form>
-        )
-    }
+            <Submit value={value} locked={locked} />
+        </form>
+    )
 }
 
 export default Form

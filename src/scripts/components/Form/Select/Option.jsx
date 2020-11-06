@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Option extends Component
+/**
+ * Renders an <option> HTML element
+ *
+ * @param {{String}, {String}} props
+ * @return {JSX.Element}
+ * @constructor
+ */
+function Option(props)
 {
-    render() {
-        return <option value={this.props.value}>{this.props.label}</option>
-    }
+    return <option value={props.value}>{props.label}</option>
 }
 
 export default Option

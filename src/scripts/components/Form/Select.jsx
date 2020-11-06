@@ -1,21 +1,28 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import Option from './Select/Option.jsx'
 
-class Select extends Component
+/**
+ * Renders a <select> HTML element with <Option> components within
+ *
+ * @param {{Function}} props
+ * @return {JSX.Element}
+ * @constructor
+ */
+function Select(props)
 {
-    state = {
-        mottos: [],
-        data: []
-    }
+    /** @var {{Option}} mottos */
+    const [mottos, setMottos] = useState([])
+    /** @var {{Number}, {String}, {Boolean}} data */
+    const [rawData, setData] = useState([])
 
-    onSelectChange = (event) => {
+    const onSelectChange = (event) => {
         const newValue = parseInt(event.target.value);
-        const selectedMotto = this.state.data.find(item => item.id === newValue)
+        const selectedMotto = rawData.find(item => item.id === newValue)
 
-        this.props.whenSelectChanged(selectedMotto?.safe)
+        props.whenSelectChanged(selectedMotto?.safe)
     }
 
-    componentDidMount() {
+    useEffect(() => {
         fetch('/assets/data/motto.json')
             .then(response => response.json())
             .then(data => {
@@ -23,21 +30,22 @@ class Select extends Component
                     return <Option key={item.id} value={item.id} label={item.text} />
                 })
 
-                this.setState({mottos: mottos, data: data})
+                setMottos(mottos)
+                setData(data)
             })
-    }
+    }, [])
 
-    render() {
-        return <div>
+    return (
+        <div>
             <label>
                 Select the motto of the day:
-                <select name="Motto of the day" onChange={this.onSelectChange}>
+                <select name="Motto of the day" onChange={onSelectChange}>
                     <option>Choose</option>
-                    {this.state.mottos}
+                    {mottos}
                 </select>
             </label>
         </div>
-    }
+    )
 }
 
 export default Select

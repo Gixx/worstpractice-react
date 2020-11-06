@@ -1,20 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Submit extends Component
-{
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return !nextProps.data.locked;
-    }
+/**
+ * Renders a <button> element if the conditions allow it
+ *
+ * @type {React.NamedExoticComponent<object>}
+ */
+const Submit = React.memo(props => {
+    let enabled = props.value.toLowerCase() === 'yes';
+    const style = { backgroundColor: enabled ? 'green' : 'red'}
+    const text  = enabled ? 'OK' : 'Cancel'
 
-    render() {
-        let enabled = this.props.data.value.toLowerCase() === 'yes';
-        const style = { backgroundColor: enabled ? 'green' : 'red'}
-        const text  = enabled ? 'OK' : 'Cancel'
-
-        return <button type="submit" style={style}>
+    return (
+        <button type="submit" style={style}>
             {text}
         </button>
-    }
-}
+    )
+}, (prevProps, nextProps) => {
+    return nextProps.locked
+})
 
 export default Submit

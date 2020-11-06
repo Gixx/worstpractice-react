@@ -1,20 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-
-class Check extends Component
+/**
+ * Renders an <input type="checkbox"> Element
+ *
+ * @param {{Boolean}, {Function}} props
+ * @return {JSX.Element}
+ * @constructor
+ */
+function Check(props)
 {
-    render() {
-        return <div>
+    return (
+        <div>
             <label>
                 Lock button state?
                 <input
                     type="checkbox"
-                    checked={this.props.locked}
-                    onChange={this.props.onLockChange}
+                    checked={props.locked}
+                    onChange={props.onLockChange}
                 />
             </label>
         </div>
-    }
+    )
 }
 
 export default Check

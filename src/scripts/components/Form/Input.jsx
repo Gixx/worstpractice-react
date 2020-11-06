@@ -1,16 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Input extends Component
+/**
+ * Renders an <input type="text"> element.
+ *
+ * @param {{String}, {Function}} props
+ * @return {JSX.Element}
+ * @constructor
+ */
+function Input(props)
 {
-    render() {
-        return <div>
+    return (
+        <div>
             <label>Is it safe? Yes or no? <input
                 type='text'
-                value={this.props.value}
-                onChange={this.props.onInputChange}
+                value={props.value}
+                onChange={props.onInputChange}
             /></label>
         </div>
-    }
+    )
 }
 
 export default Input
