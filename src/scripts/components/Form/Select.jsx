@@ -22,7 +22,7 @@ export default function Select(props)
         props.whenSelectChanged(selectedMotto?.safe)
     }
 
-    useEffect(() => {
+    const getMottos = () => {
         fetch('/assets/data/motto.json')
             .then(response => response.json())
             .then(data => {
@@ -33,7 +33,9 @@ export default function Select(props)
                 setMottos(mottos)
                 setData(data)
             })
-    }, [])
+    }
+
+    useEffect(getMottos, [])
 
     return (
         <div>
