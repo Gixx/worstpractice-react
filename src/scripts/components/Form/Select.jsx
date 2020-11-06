@@ -8,7 +8,7 @@ import Option from './Select/Option.jsx'
  * @return {JSX.Element}
  * @constructor
  */
-function Select(props)
+export default function Select(props)
 {
     /** @var {{Option}} mottos */
     const [mottos, setMottos] = useState([])
@@ -47,5 +47,3 @@ function Select(props)
         </div>
     )
 }
-
-export default Select

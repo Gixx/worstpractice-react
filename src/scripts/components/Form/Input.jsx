@@ -7,7 +7,7 @@ import React from 'react'
  * @return {JSX.Element}
  * @constructor
  */
-function Input(props)
+export default function Input(props)
 {
     return (
         <div>
@@ -15,9 +15,9 @@ function Input(props)
                 type='text'
                 value={props.value}
                 onChange={props.onInputChange}
+                onClick={event => event.target.setSelectionRange(0, props.value.length)}
+                placeholder='Yes or No'
             /></label>
         </div>
     )
 }
-
-export default Input

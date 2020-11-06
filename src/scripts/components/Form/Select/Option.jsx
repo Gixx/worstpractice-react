@@ -7,9 +7,7 @@ import React from 'react'
  * @return {JSX.Element}
  * @constructor
  */
-function Option(props)
+export default function Option(props)
 {
     return <option value={props.value}>{props.label}</option>
 }
-
-export default Option

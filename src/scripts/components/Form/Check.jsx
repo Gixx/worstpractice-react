@@ -7,7 +7,7 @@ import React from 'react'
  * @return {JSX.Element}
  * @constructor
  */
-function Check(props)
+export default function Check(props)
 {
     return (
         <div>
@@ -22,5 +22,3 @@ function Check(props)
         </div>
     )
 }
-
-export default Check
