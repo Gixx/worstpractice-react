@@ -5,7 +5,7 @@ import React from 'react'
  *
  * @type {React.NamedExoticComponent<object>}
  */
-const Submit = React.memo(props => {
+export default React.memo(props => {
     let enabled = props.value.toLowerCase() === 'yes';
     const style = { backgroundColor: enabled ? 'green' : 'red'}
     const text  = enabled ? 'OK' : 'Cancel'
@@ -18,5 +18,3 @@ const Submit = React.memo(props => {
 }, (prevProps, nextProps) => {
     return nextProps.locked
 })
-
-export default Submit
