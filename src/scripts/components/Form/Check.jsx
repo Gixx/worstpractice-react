@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * Renders an <input type="checkbox"> Element
@@ -7,7 +8,7 @@ import React from 'react'
  * @return {JSX.Element}
  * @constructor
  */
-export default function Check(props)
+function Check(props)
 {
     return (
         <div>
@@ -22,3 +23,10 @@ export default function Check(props)
         </div>
     )
 }
+
+Check.propTypes = {
+    locked: PropTypes.bool.isRequired,
+    onLockChange: PropTypes.func.isRequired
+}
+
+export default Check

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * Renders an <input type="text"> element.
@@ -7,7 +8,7 @@ import React from 'react'
  * @return {JSX.Element}
  * @constructor
  */
-export default function Input(props)
+function Input(props)
 {
     return (
         <div>
@@ -21,3 +22,10 @@ export default function Input(props)
         </div>
     )
 }
+
+Input.propTypes = {
+    value: PropTypes.string.isRequired,
+    onInputChange: PropTypes.func.isRequired
+}
+
+export default Input

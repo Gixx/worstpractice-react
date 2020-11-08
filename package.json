@@ -9,7 +9,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "preview": "cross-env NODE_ENV=production webpack serve --config config/webpack.prod.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "test": "eslint ./src --ext .jsx"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -22,6 +23,8 @@
     "cross-env": "^7.0.2",
     "css-loader": "^5.0.0",
     "css-minimizer-webpack-plugin": "^1.1.5",
+    "eslint": "^7.13.0",
+    "eslint-plugin-react": "^7.21.5",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^5.0.0-alpha.7",
     "mini-css-extract-plugin": "^1.0.0",
@@ -29,6 +32,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss-loader": "^4.0.4",
     "postcss-preset-env": "^6.7.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sass-loader": "^10.0.5",

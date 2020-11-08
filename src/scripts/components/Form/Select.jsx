@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import Option from './Select/Option.jsx'
 
 /**
@@ -8,7 +9,7 @@ import Option from './Select/Option.jsx'
  * @return {JSX.Element}
  * @constructor
  */
-export default function Select(props)
+function Select(props)
 {
     /** @var {{Option}} mottos */
     const [mottos, setMottos] = useState([])
@@ -16,7 +17,7 @@ export default function Select(props)
     const [rawData, setData] = useState([])
 
     const onSelectChange = (event) => {
-        const newValue = parseInt(event.target.value);
+        const newValue = parseInt(event.target.value)
         const selectedMotto = rawData.find(item => item.id === newValue)
 
         props.whenSelectChanged(selectedMotto?.safe)
@@ -49,3 +50,9 @@ export default function Select(props)
         </div>
     )
 }
+
+Select.propTypes = {
+    whenSelectChanged: PropTypes.func.isRequired
+}
+
+export default Select
