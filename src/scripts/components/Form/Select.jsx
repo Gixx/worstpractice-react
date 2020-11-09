@@ -5,12 +5,9 @@ import Option from './Select/Option.jsx'
 /**
  * Renders a <select> HTML element with <Option> components within
  *
- * @param {{Function}} props
- * @return {JSX.Element}
- * @constructor
+ * @type {React.NamedExoticComponent<object>}
  */
-function Select(props)
-{
+const Select = React.memo(props => {
     /** @var {{Option}} mottos */
     const [mottos, setMottos] = useState([])
     /** @var {{Number}, {String}, {Boolean}} data */
@@ -49,8 +46,9 @@ function Select(props)
             </label>
         </div>
     )
-}
+})
 
+Select.displayName = 'Select'
 Select.propTypes = {
     whenSelectChanged: PropTypes.func.isRequired
 }

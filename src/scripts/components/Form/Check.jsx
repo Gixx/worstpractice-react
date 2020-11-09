@@ -4,12 +4,9 @@ import PropTypes from 'prop-types'
 /**
  * Renders an <input type="checkbox"> Element
  *
- * @param {{Boolean}, {Function}} props
- * @return {JSX.Element}
- * @constructor
+ * @type {React.NamedExoticComponent<object>}
  */
-function Check(props)
-{
+const Check = React.memo(props => {
     return (
         <div>
             <label>
@@ -22,8 +19,9 @@ function Check(props)
             </label>
         </div>
     )
-}
+})
 
+Check.displayName = 'Check'
 Check.propTypes = {
     locked: PropTypes.bool.isRequired,
     onLockChange: PropTypes.func.isRequired

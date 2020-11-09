@@ -10,7 +10,7 @@
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "preview": "cross-env NODE_ENV=production webpack serve --config config/webpack.prod.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "test": "eslint ./src --ext .jsx"
+    "lint": "eslint ./src --ext .jsx"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

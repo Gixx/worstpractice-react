@@ -17,7 +17,7 @@ const Submit = React.memo(props => {
         </button>
     )
 }, (prevProps, nextProps) => {
-    return nextProps.locked
+    return prevProps == nextProps || nextProps.locked
 })
 
 Submit.displayName = 'Submit'

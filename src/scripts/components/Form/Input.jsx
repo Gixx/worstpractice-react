@@ -4,12 +4,9 @@ import PropTypes from 'prop-types'
 /**
  * Renders an <input type="text"> element.
  *
- * @param {{String}, {Function}} props
- * @return {JSX.Element}
- * @constructor
+ * @type {React.NamedExoticComponent<object>}
  */
-function Input(props)
-{
+const Input = React.memo(props => {
     return (
         <div>
             <label>Is it safe? Yes or no? <input
@@ -21,8 +18,9 @@ function Input(props)
             /></label>
         </div>
     )
-}
+})
 
+Input.displayName = 'Input'
 Input.propTypes = {
     value: PropTypes.string.isRequired,
     onInputChange: PropTypes.func.isRequired

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import './style.scss'
 import MessageBar from './MessageBar.jsx'
 import Select from './Select.jsx'
@@ -17,19 +17,19 @@ export default function Form()
     const [value, setValue] = useState('')
     const [locked, setLocked] = useState(true)
 
-    const onInputChange = (event) => {
-        setValue(event.target.value)
-    }
+    const onInputChange = useCallback(event => setValue(event.target.value), [value])
+    const onLockChange = useCallback(() => setLocked(!locked), [locked])
+    const whenSelectChange = useCallback(isSafe => setValue(isSafe ? 'Yes' : 'No'), [])
 
     return (
         <form id='MyForm' onSubmit={event => event.preventDefault()}>
             <MessageBar />
 
-            <Select whenSelectChanged={isSafe => setValue(isSafe ? 'Yes' : 'No')} /><br />
+            <Select whenSelectChanged={whenSelectChange} /><br />
 
             <Input value={value} onInputChange={onInputChange} /><br />
 
-            <Check locked={locked} onLockChange={() => setLocked(!locked)} /><br />
+            <Check locked={locked} onLockChange={onLockChange} /><br />
 
             <Submit value={value} locked={locked} />
         </form>

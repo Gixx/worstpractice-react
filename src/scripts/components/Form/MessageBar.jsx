@@ -7,8 +7,7 @@ import '../../../styles/definitions/_messagebar.scss'
  * @return {JSX.Element}
  * @constructor
  */
-export default function MessageBar()
-{
+const MessageBar = React.memo(() => {
     const [[x, y], setWindowsize] = useState([window.innerWidth, window.innerHeight])
     const [visibility, setVisibility] = useState('hidden')
 
@@ -32,4 +31,7 @@ export default function MessageBar()
             The window size is {x} x {y}
         </div>
     )
-}
+})
+
+MessageBar.displayName = 'MessageBar'
+export default MessageBar

@@ -1,20 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+
 /**
  * Renders an <option> HTML element
  *
- * @param {{String}, {String}} props
- * @return {JSX.Element}
- * @constructor
+ * @type {React.NamedExoticComponent<object>}
  */
-function Option(props)
-{
+const Option = React.memo(props => {
     return <option value={props.value}>{props.label}</option>
-}
+})
 
+Option.displayName = 'Option'
 Option.propTypes = {
-    value: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
     label: PropTypes.string.isRequired
 }
 
