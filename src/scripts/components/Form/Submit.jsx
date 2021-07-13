@@ -4,9 +4,11 @@ import PropTypes from 'prop-types'
 /**
  * Renders a <button> element if the conditions allow it
  *
- * @type {React.NamedExoticComponent<object>}
+ * @return {JSX.Element}
+ * @constructor
  */
-const Submit = React.memo(props => {
+function Submit(props)
+{
     let enabled = props.value.toLowerCase() === 'yes'
     const style = { backgroundColor: enabled ? 'green' : 'red'}
     const text = enabled ? 'OK' : 'Cancel'
@@ -16,13 +18,16 @@ const Submit = React.memo(props => {
             {text}
         </button>
     )
-}, (prevProps, nextProps) => {
-    return prevProps == nextProps || nextProps.locked
-})
+}
+
+function isLocked(prevProps, nextProps)
+{
+    return prevProps === nextProps || nextProps.locked
+}
 
 Submit.displayName = 'Submit'
 Submit.propTypes = {
     value: PropTypes.string.isRequired
 }
 
-export default Submit
+export default React.memo(Submit, isLocked)

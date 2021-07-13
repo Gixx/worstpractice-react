@@ -12,7 +12,7 @@ import Submit from './Submit.jsx'
  * @return {JSX.Element}
  * @constructor
  */
-export default function Form()
+function Form()
 {
     const [value, setValue] = useState('')
     const [locked, setLocked] = useState(true)
@@ -35,3 +35,5 @@ export default function Form()
         </form>
     )
 }
+
+export default Form

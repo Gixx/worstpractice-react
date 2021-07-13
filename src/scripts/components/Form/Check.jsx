@@ -4,9 +4,11 @@ import PropTypes from 'prop-types'
 /**
  * Renders an <input type="checkbox"> Element
  *
- * @type {React.NamedExoticComponent<object>}
+ * @return {JSX.Element}
+ * @constructor
  */
-const Check = React.memo(props => {
+function  Check(props)
+{
     return (
         <div>
             <label>
@@ -19,7 +21,7 @@ const Check = React.memo(props => {
             </label>
         </div>
     )
-})
+}
 
 Check.displayName = 'Check'
 Check.propTypes = {
@@ -27,4 +29,4 @@ Check.propTypes = {
     onLockChange: PropTypes.func.isRequired
 }
 
-export default Check
+export default React.memo(Check)

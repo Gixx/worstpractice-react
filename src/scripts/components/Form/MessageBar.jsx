@@ -7,15 +7,16 @@ import '../../../styles/definitions/_messagebar.scss'
  * @return {JSX.Element}
  * @constructor
  */
-const MessageBar = React.memo(() => {
-    const [[x, y], setWindowsize] = useState([window.innerWidth, window.innerHeight])
+function MessageBar()
+{
+    const [[x, y], setWindowSize] = useState([window.innerWidth, window.innerHeight])
     const [visibility, setVisibility] = useState('hidden')
 
     useEffect(() => {
         let timerId
 
         const handleResize = () => {
-            setWindowsize([window.innerWidth, window.innerHeight])
+            setWindowSize([window.innerWidth, window.innerHeight])
             setVisibility('visible')
             clearTimeout(timerId)
             timerId = setTimeout(() => setVisibility('hidden'), 500)
@@ -31,7 +32,7 @@ const MessageBar = React.memo(() => {
             The window size is {x} x {y}
         </div>
     )
-})
+}
 
 MessageBar.displayName = 'MessageBar'
-export default MessageBar
+export default React.memo(MessageBar)

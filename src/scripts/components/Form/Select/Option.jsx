@@ -5,11 +5,13 @@ import PropTypes from 'prop-types'
 /**
  * Renders an <option> HTML element
  *
- * @type {React.NamedExoticComponent<object>}
+ * @return {JSX.Element}
+ * @constructor
  */
-const Option = React.memo(props => {
+function Option(props)
+{
     return <option value={props.value}>{props.label}</option>
-})
+}
 
 Option.displayName = 'Option'
 Option.propTypes = {
@@ -17,4 +19,4 @@ Option.propTypes = {
     label: PropTypes.string.isRequired
 }
 
-export default Option
+export default React.memo(Option)

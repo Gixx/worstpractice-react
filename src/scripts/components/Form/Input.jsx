@@ -4,9 +4,11 @@ import PropTypes from 'prop-types'
 /**
  * Renders an <input type="text"> element.
  *
- * @type {React.NamedExoticComponent<object>}
+ * @return {JSX.Element}
+ * @constructor
  */
-const Input = React.memo(props => {
+function Input(props)
+{
     return (
         <div>
             <label>Is it safe? Yes or no? <input
@@ -18,7 +20,7 @@ const Input = React.memo(props => {
             /></label>
         </div>
     )
-})
+}
 
 Input.displayName = 'Input'
 Input.propTypes = {
@@ -26,4 +28,4 @@ Input.propTypes = {
     onInputChange: PropTypes.func.isRequired
 }
 
-export default Input
+export default React.memo(Input)
