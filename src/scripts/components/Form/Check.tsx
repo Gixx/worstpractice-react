@@ -1,13 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, {FunctionComponent} from 'react'
+
+type CheckboxProps = {
+    locked: boolean,
+    onLockChange: () => void,
+}
 
 /**
  * Renders an <input type="checkbox"> Element
- *
- * @return {JSX.Element}
+ * @param props
  * @constructor
  */
-function  Check(props)
+const Check: FunctionComponent<CheckboxProps> = function (props)
 {
     return (
         <div>
@@ -21,12 +24,6 @@ function  Check(props)
             </label>
         </div>
     )
-}
-
-Check.displayName = 'Check'
-Check.propTypes = {
-    locked: PropTypes.bool.isRequired,
-    onLockChange: PropTypes.func.isRequired
 }
 
 export default React.memo(Check)

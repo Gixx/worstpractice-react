@@ -1,16 +1,12 @@
-import React from 'react'
+import React, {FunctionComponent} from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import '../styles/app.scss'
-import Form from './components/Form/Form.jsx'
+import Form from './components/Form/Form'
 
 const app = document.querySelector('#root')
 const Heading = () => (<h1>Hello</h1>)
 
-const AppContainer = (props) => (<div>{props.children}</div>)
-AppContainer.propTypes = {
-    children: PropTypes.array.isRequired
-}
+const AppContainer:FunctionComponent = (props) => (<div>{props.children}</div>)
 
 ReactDOM.render(
     <AppContainer>

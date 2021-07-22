@@ -1,25 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, FunctionComponent} from 'react'
 import '../../../styles/definitions/_messagebar.scss'
 
 /**
- * Renders a <div> element with some calculated data
+ * Renders a <div> element with some calculated data.
  *
- * @return {JSX.Element}
  * @constructor
  */
-function MessageBar()
+const MessageBar:FunctionComponent = function()
 {
-    const [[x, y], setWindowSize] = useState([window.innerWidth, window.innerHeight])
-    const [visibility, setVisibility] = useState('hidden')
+    type CSSVisibility = 'hidden' | 'visible';
+
+    const [[x, y], setWindowSize] = useState<number[]>([window.innerWidth, window.innerHeight])
+    const [visibility, setVisibility] = useState<CSSVisibility>('hidden')
 
     useEffect(() => {
-        let timerId
+        let timerId: number
 
         const handleResize = () => {
             setWindowSize([window.innerWidth, window.innerHeight])
             setVisibility('visible')
-            clearTimeout(timerId)
-            timerId = setTimeout(() => setVisibility('hidden'), 500)
+            window.clearTimeout(timerId)
+            timerId = window.setTimeout(() => setVisibility('hidden'), 500)
         }
 
         window.addEventListener('resize', handleResize)
@@ -34,5 +35,4 @@ function MessageBar()
     )
 }
 
-MessageBar.displayName = 'MessageBar'
 export default React.memo(MessageBar)

@@ -1,5 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, {FunctionComponent} from 'react'
+
+type SubmitProps = {
+    value: string,
+    locked: boolean
+}
 
 /**
  * Renders a <button> element if the conditions allow it
@@ -7,9 +11,9 @@ import PropTypes from 'prop-types'
  * @return {JSX.Element}
  * @constructor
  */
-function Submit(props)
+const Submit:FunctionComponent<SubmitProps> = function(props)
 {
-    let enabled = props.value.toLowerCase() === 'yes'
+    const enabled = props.value.toLowerCase() === 'yes'
     const style = { backgroundColor: enabled ? 'green' : 'red'}
     const text = enabled ? 'OK' : 'Cancel'
 
@@ -20,14 +24,10 @@ function Submit(props)
     )
 }
 
-function isLocked(prevProps, nextProps)
+function isLocked(prevProps:SubmitProps, nextProps:SubmitProps)
 {
     return prevProps === nextProps || nextProps.locked
 }
 
-Submit.displayName = 'Submit'
-Submit.propTypes = {
-    value: PropTypes.string.isRequired
-}
 
 export default React.memo(Submit, isLocked)

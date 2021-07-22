@@ -1,3 +1,6 @@
 assets
 dist
 node_modules
+*.css
+*.scss
+*.html
