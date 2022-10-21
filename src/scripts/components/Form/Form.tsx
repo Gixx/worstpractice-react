@@ -1,13 +1,12 @@
 import React, {useState, FunctionComponent} from 'react'
 import './style.scss'
-import MessageBar from './MessageBar'
-import Select from './Select'
+import SelectBox from './SelectBox'
 import Input from './Input'
 import Check from './Check'
 import Submit from './Submit'
 
 /**
- * Renders a form with a couple of sub-components within
+ * Renders a form with a couple of subcomponents within
  */
 const Form: FunctionComponent = function ()
 {
@@ -20,9 +19,8 @@ const Form: FunctionComponent = function ()
 
     return (
         <form id='MyForm' onSubmit={event => event.preventDefault()}>
-            <MessageBar/>
 
-            <Select onSelectChange={onSelectChange}/><br/>
+            <SelectBox onSelectChange={onSelectChange}/><br/>
 
             <Input value={value} onInputChange={onInputChange}/><br/>
 

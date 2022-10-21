@@ -1,8 +1,18 @@
-.messagebar {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid darkgreen;
-  background: lightgreen;
-  text-align: center;
-  font-weight: bold;
+#size-alert {
+  position: fixed;
+  z-index: 100;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  width: 500px;
+
+  .chakra-alert__content {
+    flex-grow: 2;
+  }
+
+  &.fade {
+    opacity: 0;
+    transition: opacity 500ms ease-out;
+  }
 }

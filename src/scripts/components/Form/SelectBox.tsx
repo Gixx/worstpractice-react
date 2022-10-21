@@ -1,4 +1,5 @@
 import React, {useState, useEffect, FunctionComponent, ChangeEvent, ChangeEventHandler} from 'react'
+import { Select } from '@chakra-ui/react'
 import Option from './Select/Option'
 
 type SelectProps = {
@@ -11,7 +12,7 @@ type SelectProps = {
  * @param props
  * @constructor
  */
-const Select:FunctionComponent<SelectProps> = function(props)
+const SelectBox:FunctionComponent<SelectProps> = function(props)
 {
     type Motto = {
         id: number,
@@ -20,7 +21,7 @@ const Select:FunctionComponent<SelectProps> = function(props)
     }
     type MottoStore = Array<Motto>;
 
-    const [mottoElements, setMottos] = useState<HTMLOptionElement[]>([])
+    const [mottoElements, setMottos] = useState<JSX.Element[]>([])
     const [mottos, setData] = useState<MottoStore>([])
 
     const onSelectChange:ChangeEventHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -51,13 +52,12 @@ const Select:FunctionComponent<SelectProps> = function(props)
         <div>
             <label>
                 Select the motto of the day:
-                <select name="Motto of the day" onChange={onSelectChange}>
-                    <option>Choose</option>
+                <Select placeholder="Motto of the day" variant="outline" onChange={onSelectChange}>
                     {mottoElements}
-                </select>
+                </Select>
             </label>
         </div>
     )
 }
 
-export default React.memo(Select)
+export default React.memo(SelectBox)

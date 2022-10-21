@@ -1,4 +1,5 @@
 import React, {FunctionComponent} from 'react'
+import { Checkbox } from '@chakra-ui/react'
 
 type CheckboxProps = {
     locked: boolean,
@@ -14,14 +15,10 @@ const Check: FunctionComponent<CheckboxProps> = function (props)
 {
     return (
         <div>
-            <label>
+            <Checkbox size="lg" colorScheme="green" isChecked={props.locked} onChange={props.onLockChange}
+            >
                 Lock button state?
-                <input
-                    type="checkbox"
-                    checked={props.locked}
-                    onChange={props.onLockChange}
-                />
-            </label>
+            </Checkbox>
         </div>
     )
 }

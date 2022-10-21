@@ -64,9 +64,6 @@ const config: webpack.Configuration = {
     plugins: [
         new ForkTsCheckerWebpackPlugin({
             async: false,
-            eslint: {
-                files: './src/**/*',
-            },
         }),
         new MiniCssExtractPlugin({
             filename: 'assets/styles/[name].[contenthash].css',
@@ -104,6 +101,11 @@ const config: webpack.Configuration = {
         hints: false,
         maxEntrypointSize: 512000,
         maxAssetSize: 512000,
+    },
+    watch: true,
+    watchOptions: {
+        poll: 1000,
+        ignored: __dirname + '/node_modules/',
     }
 }
 
