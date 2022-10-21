@@ -19,15 +19,27 @@ const MessageBar:FunctionComponent = function()
     } = useDisclosure({ defaultIsOpen: true })
 
     useEffect(() => {
-        let timerId: number
+        let timerIds: Array<number>
 
         const handleResize = () => {
+            resetAlert()
             setWindowSize([window.innerWidth, window.innerHeight])
+            for (let timerId in timerIds) {
+                window.clearTimeout(timerId)
+            }
+            timerIds = setAlert()
+        }
+
+        const resetAlert = () => {
             setVisibility(true)
-            window.clearTimeout(timerId)
-            window.setTimeout(() => setTransition("fade"), 1000)
-            timerId = window.setTimeout(() => setVisibility(false), 1500)
-            window.setTimeout(() => setTransition(""), 2000)
+            setTransition("")
+        }
+
+        const setAlert = () => {
+            const timerIds = [];
+            timerIds.push(window.setTimeout(() => setTransition("fade"), 1000))
+            timerIds.push(window.setTimeout(() => setVisibility(false), 1500))
+            return timerIds
         }
 
         window.addEventListener('resize', handleResize)
