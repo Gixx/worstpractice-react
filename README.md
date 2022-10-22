@@ -1,6 +1,6 @@
 # The worstpractice.dev presents
 
-## DIY Dependency Injection
+## My useless React App
 
 [![React Version](https://img.shields.io/badge/React-18.2-blue)](https://reactjs.org/)
 [![Typescript Version](https://img.shields.io/badge/Typescript-4.8-blue)](https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/)
