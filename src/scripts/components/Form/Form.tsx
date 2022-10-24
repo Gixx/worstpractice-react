@@ -1,7 +1,7 @@
 import React, {useState, FunctionComponent} from 'react'
 import './style.scss'
 import SelectBox from './SelectBox'
-import Input from './Input'
+import InputField from './InputField'
 import Check from './Check'
 import Submit from './Submit'
 
@@ -22,7 +22,7 @@ const Form: FunctionComponent = function ()
 
             <SelectBox onSelectChange={onSelectChange}/><br/>
 
-            <Input value={value} onInputChange={onInputChange}/><br/>
+            <InputField value={value} onInputChange={onInputChange}/><br/>
 
             <Check locked={locked} onLockChange={onLockChange}/><br/>
 
