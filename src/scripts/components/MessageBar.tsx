@@ -1,5 +1,5 @@
 import React, {useState, useEffect, FunctionComponent} from 'react'
-import '../../../styles/definitions/_messagebar.scss'
+import '../../styles/definitions/_messagebar.scss'
 import {Alert, AlertIcon, AlertTitle, AlertDescription, CloseButton, useDisclosure} from '@chakra-ui/react'
 import {Box} from '@chakra-ui/layout'
 

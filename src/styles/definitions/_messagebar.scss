@@ -1,11 +1,11 @@
 #size-alert {
   position: fixed;
   z-index: 100;
-  top: 10px;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   opacity: 1;
-  width: 500px;
+  width: 50rem;
 
   .chakra-alert__content {
     flex-grow: 2;

@@ -1,9 +1,9 @@
 import React, {useState, FunctionComponent} from 'react'
-import './style.scss'
-import SelectBox from './SelectBox'
-import InputField from './InputField'
-import Check from './Check'
-import Submit from './Submit'
+import './Form/style.scss'
+import SelectBox from './Form/SelectBox'
+import InputField from './Form/InputField'
+import Check from './Form/Check'
+import Submit from './Form/Submit'
 
 /**
  * Renders a form with a couple of subcomponents within
