@@ -19,13 +19,9 @@ const Form: FunctionComponent = function ()
 
     return (
         <form id='MyForm' onSubmit={event => event.preventDefault()}>
-
             <SelectBox onSelectChange={onSelectChange}/><br/>
-
             <InputField value={value} onInputChange={onInputChange}/><br/>
-
             <Check locked={locked} onLockChange={onLockChange}/><br/>
-
             <Submit value={value} locked={locked}/>
         </form>
     )
