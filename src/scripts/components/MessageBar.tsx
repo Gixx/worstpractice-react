@@ -20,22 +20,21 @@ const MessageBar:FunctionComponent = function()
         const handleResize = () => {
             setWindowSize([window.innerWidth, window.innerHeight])
             showAlert()
-            timerIds = timeoutHideAlert()
+            timeoutHideAlert()
         }
 
         const showAlert = () => {
             for (let timerId in timerIds) {
                 window.clearTimeout(timerId)
             }
+            timerIds = []
             setVisibility(true)
             setTransition("")
         }
 
         const timeoutHideAlert = () => {
-            const timerIds = [];
             timerIds.push(window.setTimeout(() => setTransition("fade"), 1000))
             timerIds.push(window.setTimeout(() => setVisibility(false), 1500))
-            return timerIds
         }
 
         window.addEventListener('resize', handleResize)
