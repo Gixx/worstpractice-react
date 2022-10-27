@@ -1,7 +1,7 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import {Box} from '@chakra-ui/layout'
-import ReactDOM from 'react-dom'
 import '../styles/app.scss'
 import Form from './components/Form'
 import MessageBar from './components/MessageBar'
