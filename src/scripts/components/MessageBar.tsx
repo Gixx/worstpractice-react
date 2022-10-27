@@ -15,26 +15,30 @@ const MessageBar:FunctionComponent = function()
     const [transition, setTransition] = useState<string>("")
 
     useEffect(() => {
-        let timerIds: Array<number>
+        let timerIds: Array<number> = []
 
         const handleResize = () => {
             setWindowSize([window.innerWidth, window.innerHeight])
-            showAlert()
-            timeoutHideAlert()
+            cancelTimeoutHide()
+            showAlertBox()
+            timeoutHideAlertBox()
         }
 
-        const showAlert = () => {
-            for (let timerId in timerIds) {
-                window.clearTimeout(timerId)
-            }
-            timerIds = []
+        const showAlertBox = () => {
             setVisibility(true)
             setTransition("")
         }
 
-        const timeoutHideAlert = () => {
+        const timeoutHideAlertBox = () => {
             timerIds.push(window.setTimeout(() => setTransition("fade"), 1000))
             timerIds.push(window.setTimeout(() => setVisibility(false), 1500))
+        }
+
+        const cancelTimeoutHide = () => {
+            for (let i = 0, n = timerIds.length; i < n; i++) {
+                window.clearTimeout(timerIds[i])
+            }
+            timerIds = []
         }
 
         window.addEventListener('resize', handleResize)
