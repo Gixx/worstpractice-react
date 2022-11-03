@@ -1,6 +1,6 @@
 import React, {useState, useEffect, FunctionComponent, ChangeEvent, ChangeEventHandler} from 'react'
 import { Select } from '@chakra-ui/react'
-import Option from './Select/Option'
+import Option from './SelectBox/Option'
 
 type SelectProps = {
     onSelectChange: (isSafe: boolean) => void;
@@ -36,7 +36,7 @@ const SelectBox:FunctionComponent<SelectProps> = function(props)
             .then(response => response.json())
             .then((data) => {
                 const elements = data.map((item:Motto) => {
-                    return <Option key={item.id} value={item.id.toString()} label={item.text} />
+                    return <Option value={item.id.toString()} label={item.text} />
                 })
 
                 setMottos(elements)

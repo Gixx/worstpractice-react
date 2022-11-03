@@ -29,5 +29,4 @@ function isLocked(prevProps:SubmitProps, nextProps:SubmitProps)
     return prevProps === nextProps || nextProps.locked
 }
 
-
 export default React.memo(Submit, isLocked)

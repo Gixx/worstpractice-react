@@ -11,7 +11,7 @@ type CheckboxProps = {
  * @param props
  * @constructor
  */
-const Check: FunctionComponent<CheckboxProps> = function (props)
+const Lock: FunctionComponent<CheckboxProps> = function (props)
 {
     return (
         <div>
@@ -23,4 +23,4 @@ const Check: FunctionComponent<CheckboxProps> = function (props)
     )
 }
 
-export default React.memo(Check)
+export default React.memo(Lock)

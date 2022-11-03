@@ -2,7 +2,7 @@ import React, {useState, FunctionComponent} from 'react'
 import './Form/style.scss'
 import SelectBox from './Form/SelectBox'
 import InputField from './Form/InputField'
-import Check from './Form/Check'
+import Lock from './Form/Lock'
 import Submit from './Form/Submit'
 
 /**
@@ -21,7 +21,7 @@ const Form: FunctionComponent = function ()
         <form id='MyForm' onSubmit={event => event.preventDefault()}>
             <SelectBox onSelectChange={onSelectChange}/><br/>
             <InputField value={value} onInputChange={onInputChange}/><br/>
-            <Check locked={locked} onLockChange={onLockChange}/><br/>
+            <Lock locked={locked} onLockChange={onLockChange}/><br/>
             <Submit value={value} locked={locked}/>
         </form>
     )
